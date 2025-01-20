@@ -1,5 +1,6 @@
 export const STARS_COUNT = 5;
 export const MAX_PERCENT_STARS_WIDTH = 100;
+export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as const;
 
 export enum AppRoute {
   Root = '/',
