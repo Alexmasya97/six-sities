@@ -1,11 +1,13 @@
 import CardList from '../../components/card-list/card-list';
-import { Offer } from '../../types/types';
+import type { City, Offer } from '../../types/types';
+import Map from '../../components/map/map';
 
 type MainProps = {
+  city: City;
   offers: Offer[];
 }
 
-const Main = ({ offers }: MainProps): JSX.Element => (
+const Main = ({ offers, city }: MainProps): JSX.Element => (
 
   <div className="page page--gray page--main">
     <header className="header">
@@ -99,7 +101,8 @@ const Main = ({ offers }: MainProps): JSX.Element => (
             </div>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <Map locations={offers.map((offer) => offer.location)} city={city} />
+
           </div>
         </div>
       </div>

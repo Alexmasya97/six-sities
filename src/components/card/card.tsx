@@ -1,11 +1,12 @@
 import type { Offer } from '../../types/types';
 
-import { AppRoute, MAX_PERCENT_STARS_WIDTH, STARS_COUNT } from '../../const';
+import { AppRoute } from '../../const';
+import { getStarsWidth } from '../../utils';
 
 type CardProps = Offer & {
   onMouseMove?: (id: number) => void;
   onMouseLeave?: () => void;
-  place?: 'cities' | 'favorites';
+  place?: 'cities' | 'near-places';
 };
 
 const Card = ({
@@ -15,7 +16,6 @@ const Card = ({
   title,
   isPremium,
   isFavorite,
-  previewImage,
   type,
   place = 'cities',
   onMouseMove = () => void 0,
@@ -40,7 +40,7 @@ const Card = ({
         <a href="#">
           <img
             className="place-card__image"
-            src={previewImage}
+            src="img/apartment-01.jpg"
             width="260"
             height="200"
             alt="Place image"
@@ -68,7 +68,7 @@ const Card = ({
           <div className="place-card__stars rating__stars">
             <span
               style={{
-                width: `${(MAX_PERCENT_STARS_WIDTH * rating) / STARS_COUNT}%`,
+                width: getStarsWidth(rating),
               }}
             >
             </span>
