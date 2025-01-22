@@ -21,6 +21,8 @@ export type Offer = {
     isPremium: boolean;
     isFavorite: boolean;
     location: Location;
+    city: City;
+    previewImage: string;
     type: 'apartment' | 'room' | 'house' | 'hotel';
 }
 
@@ -38,3 +40,5 @@ export type Comment = {
   rating: number;
   user: User;
 }
+
+
