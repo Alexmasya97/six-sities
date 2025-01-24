@@ -1,6 +1,7 @@
-import { cities } from '../const';
+import { cities, Sorting } from '../const';
 
 export type CityName = typeof cities[number];
+export type SortName = keyof typeof Sorting;
 
 export type Location = {
     latitude: number;
@@ -21,6 +22,8 @@ export type Offer = {
     isPremium: boolean;
     isFavorite: boolean;
     location: Location;
+    city: City;
+    previewImage: string;
     type: 'apartment' | 'room' | 'house' | 'hotel';
 }
 
@@ -38,3 +41,5 @@ export type Comment = {
   rating: number;
   user: User;
 }
+
+

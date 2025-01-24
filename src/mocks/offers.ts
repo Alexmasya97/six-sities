@@ -1,3 +1,4 @@
+import { CityLocation } from '../const';
 import type { Offer } from '../types/types';
 
 const offers: Offer[] = [
@@ -8,12 +9,28 @@ const offers: Offer[] = [
     title: 'Beautiful & luxurious apartment at great location',
     isPremium: true,
     isFavorite: false,
-    location: {
-      latitude: 52.3909553943508,
-      longitude: 4.85309666406198,
-      zoom: 1
+    location: CityLocation['Amsterdam'],
+    city: {
+      name: 'Amsterdam',
+      location: CityLocation['Amsterdam'],
     },
-    type: 'apartment'
+    previewImage: 'img/apartment-01.jpg',
+    type: 'apartment',
+  },
+  {
+    id: 11,
+    price: 400,
+    rating: 5.0,
+    title: 'Beautiful & luxurious apartment at great location',
+    isPremium: true,
+    isFavorite: false,
+    location: CityLocation['Amsterdam'],
+    city: {
+      name: 'Amsterdam',
+      location: CityLocation['Amsterdam'],
+    },
+    previewImage: 'img/apartment-01.jpg',
+    type: 'apartment',
   },
   {
     id: 2,
@@ -22,12 +39,13 @@ const offers: Offer[] = [
     title: 'A apartment at great location beautiful',
     isPremium: false,
     isFavorite: false,
-    location: {
-      latitude: 52.369553943508,
-      longitude: 4.85309666406198,
-      zoom: 1
+    location: CityLocation['Paris'],
+    city: {
+      name: 'Paris',
+      location: CityLocation['Paris']
     },
-    type: 'room'
+    previewImage: 'img/apartment-02.jpg',
+    type: 'room',
   },
   {
     id: 3,
@@ -36,12 +54,13 @@ const offers: Offer[] = [
     title: 'Great location apartment at great location',
     isPremium: true,
     isFavorite: true,
-    location: {
-      latitude: 52.3909553943508,
-      longitude: 4.929309666406198,
-      zoom: 1
+    location: CityLocation['Cologne'],
+    city: {
+      name: 'Cologne',
+      location: CityLocation['Cologne']
     },
-    type: 'house'
+    previewImage: 'img/apartment-03.jpg',
+    type: 'house',
   },
   {
     id: 4,
@@ -50,12 +69,13 @@ const offers: Offer[] = [
     title: 'Luxurious & beautiful apartment at great location',
     isPremium: false,
     isFavorite: true,
-    location: {
-      latitude: 52.3809553943508,
-      longitude: 4.939309666406198,
-      zoom: 1
+    location: CityLocation['Hamburg'],
+    city: {
+      name: 'Hamburg',
+      location: CityLocation['Hamburg']
     },
-    type: 'hotel'
+    previewImage: 'img/apartment-01.jpg',
+    type: 'hotel',
   },
 ];
 
