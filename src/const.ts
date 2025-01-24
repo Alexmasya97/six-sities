@@ -1,4 +1,4 @@
-import { CityName, Location } from './types/types';
+import { CityName, Location, SortName, Offer} from './types/types';
 
 export const STARS_COUNT = 5;
 export const MAX_PERCENT_STARS_WIDTH = 100;
@@ -24,10 +24,7 @@ export const URL_MARKER_DEFAULT =
 export const URL_MARKER_CURRENT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
 
-  type CityLocation = {
-    [key in CityName]: Location
-  }
-export const CityCenter: CityLocation = {
+export const CityLocation: { [key in CityName]: Location } = {
   'Paris': {
     latitude: 48.85661,
     longitude: 2.351499,
@@ -59,3 +56,18 @@ export const CityCenter: CityLocation = {
     zoom: 10
   },
 };
+export const Comprator: {
+    [key in SortName]: (a: Offer, b: Offer) => number
+  } = {
+    Popular: () => 0,
+    PriceIncrease: (a, b) => a.price - b.price,
+    PriceDecrease: (a, b) => b.price - a.price,
+    TopRated: (a, b) => b.rating - a.rating,
+  };
+
+export enum Sorting {
+  Popular = 'Popular',
+  PriceIncrease = 'Price: low to high',
+  PriceDecrease = 'Price: high to low',
+  TopRated = 'Top rated first',
+}
