@@ -1,20 +1,24 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { City, Offer, SortName } from '../types/types';
+
+import type { City, Offer, SortName } from '../types/types';
+
+import { setCity, fetchOffers, setSorting } from './action';
 import { cities, CityLocation } from '../const';
-import { setCity, setOffers, setSorting } from './action';
 
 type State = {
   city: City;
   offers: Offer[];
+  isOffersLoading: boolean;
   sorting: SortName;
-}
+};
 
 const initialState: State = {
   city: {
     name: cities[0],
-    location: CityLocation[cities[0]]
+    location: CityLocation[cities[0]],
   },
   offers: [],
+  isOffersLoading: false,
   sorting: 'Popular',
 };
 
@@ -26,8 +30,12 @@ export const reducer = createReducer(initialState, (builder) => {
         location: CityLocation[action.payload],
       };
     })
-    .addCase(setOffers, (state, action) => {
+    .addCase(fetchOffers.pending, (state, action) => {
+      state.isOffersLoading = true;
+    })
+    .addCase(fetchOffers.fulfilled, (state, action) => {
       state.offers = action.payload;
+      state.isOffersLoading = false;
     })
     .addCase(setSorting, (state, action) => {
       state.sorting = action.payload;
