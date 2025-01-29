@@ -1,26 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Main from '../../pages/main/main';
-import { Login } from '../../pages/login/login';
+import Login from '../../pages/login/login';
 import { Favorites } from '../../pages/favorites/favorites';
 import Property from '../../pages/property/property';
 import NotFound from '../../pages/notFound/notFound';
 import PrivateRoute from '../private-route/private-route';
-import { AppRoute, AuthorizationStatus } from '../../const';
-
+import { AppRoute, CityLocation } from '../../const';
 
 const App = (): JSX.Element => (
   <BrowserRouter>
     <Routes>
       <Route index element={<Main />} />
       <Route path={AppRoute.Login} element={<Login />} />
-      <Route path={`${AppRoute.Property}/:id`} element={<Property city={{ name: 'Amsterdam', location: Location }} nearbyOffers={[]} reviews={[]} />} />
+      <Route path={`${AppRoute.Property}/:id`} element={<Property city={{ name: 'Amsterdam', location: CityLocation.Amsterdam }} nearbyOffers={[]} reviews={[]} />} />
       <Route
         path={AppRoute.Favorites}
         element={
-          <PrivateRoute
-            authorizationStatus={AuthorizationStatus.Auth}
-          >
+          <PrivateRoute>
             <Favorites offers={[]} />
           </PrivateRoute>
         }
