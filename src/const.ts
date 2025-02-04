@@ -56,11 +56,17 @@ export enum Sorting {
   TopRated = 'Top rated first',
 }
 
+export enum StoreSlice {
+  SiteData = 'SITE_DATA',
+  SiteProcess = 'SITE_PROCESS',
+  UserProcess = 'USER_PROCESS',
+}
+
 export enum HttpCode {
   NotFound = 404
 }
 
-export const Comprator: {
+export const Comparator: {
   [key in SortName]: (a: Offer, b: Offer) => number;
 } = {
   Popular: () => 0,
