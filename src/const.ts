@@ -40,7 +40,8 @@ export enum AppRoute {
 export enum ApiRoute {
   Offers = '/hotels',
   Login = '/login',
-  Comments = '/comments'
+  Comments = '/comments',
+  Favorite = '/favorite',
 }
 
 export enum AuthorizationStatus {
@@ -56,11 +57,18 @@ export enum Sorting {
   TopRated = 'Top rated first',
 }
 
-export enum HttpCode {
-  NotFound = 404
+export enum StoreSlice {
+  SiteData = 'SITE_DATA',
+  SiteProcess = 'SITE_PROCESS',
+  UserProcess = 'USER_PROCESS',
 }
 
-export const Comprator: {
+export enum HttpCode {
+  NotFound = 404,
+  NoAuth = 401
+}
+
+export const Comparator: {
   [key in SortName]: (a: Offer, b: Offer) => number;
 } = {
   Popular: () => 0,
